@@ -49,7 +49,7 @@ AccelStepper stepper1(FULLSTEP, motorPin1, motorPin3, motorPin2, motorPin4);
 
 void setup()
 { 
-  Serial.begin(9600);
+  Serial.begin(28800);
   // 1 revolution Motor 1 CW
   stepper1.setMaxSpeed(1000.0);
   stepper1.setAcceleration(100.0);
@@ -81,7 +81,7 @@ void loop()
        preasureValue = ((preasureValue - preasureZero)*preasureTransducerMaxPSI)/(preasureMax - preasureZero); //Converts from anolog to
        targetPositionPSI = preasureValue;
        Serial.println(preasureValue);
-       delay(sensorReadDelay);
+       //delay(sensorReadDelay);
     // Will check if the TargetPosition is greater or equal to then zero to make it take the appropriate number of steps
     if(targetPositionPSI >= 0){
       targetPositionPSI = abs(targetPositionPSI);
